@@ -3,13 +3,13 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="#" class="navbar-brand">Home</a>
+            <a href="/index.jsp" class="navbar-brand">Home</a>
         </div>
 
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#">Music List</a></li>
-                <li><a href="#">Favorite</a></li>
+                <li><a href="#">Booking History</a></li>
+                <li><a href="#">Profile</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
