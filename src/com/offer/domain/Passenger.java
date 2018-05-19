@@ -1,6 +1,6 @@
 package com.offer.domain;
 
-public class Passager {
+public class Passenger {
     private Person person;
     private String ssn;
     private String street;
@@ -11,11 +11,19 @@ public class Passager {
     private String telHome;
     private String telOffice;
     private String email;
+    private String password;
 
-    public Passager() {
+    public Passenger() {
+        this.person = new Person();
     }
 
-    public Passager(Person person, String ssn, String street, String apartmentNumber, String city, String state, String zip, String telHome, String telOffice, String email) {
+    public Passenger(String email, String password) {
+        this.email = email;
+        this.password = password;
+        this.person = new Person();
+    }
+
+    public Passenger(Person person, String ssn, String street, String apartmentNumber, String city, String state, String zip, String telHome, String telOffice, String email) {
         this.person = person;
         this.ssn = ssn;
         this.street = street;
@@ -107,5 +115,13 @@ public class Passager {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

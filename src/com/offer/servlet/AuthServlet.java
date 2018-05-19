@@ -1,5 +1,9 @@
 package com.offer.servlet;
 
+import com.offer.domain.Passenger;
+import com.offer.service.AuthService;
+import com.offer.service.AutheServiceImpl;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +25,13 @@ public class AuthServlet extends HttpServlet {
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        System.out.println(email + "  " + password);
+
+        Passenger passenger = new Passenger(email, password);
+        AuthService authService = new AutheServiceImpl();
+        if (authService.login(passenger) != null) {
+            System.out.println("login success in servlet");
+            request.getSession().setAttribute("auth", 1);
+        }
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 }

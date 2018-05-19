@@ -6,10 +6,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConnectionPoool {
+public class ConnectionPool {
     List<Connection> availableConnections = new ArrayList<>();
 
-    public ConnectionPoool()
+    public static final ConnectionPool CONNECTION_POOL = new ConnectionPool();
+
+    public static ConnectionPool getInstance() {
+        return CONNECTION_POOL;
+    }
+
+    private ConnectionPool()
     {
         initializeConnectionPool();
     }

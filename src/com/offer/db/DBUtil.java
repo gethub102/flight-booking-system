@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class DBUtil {
 
-    private static ConnectionPoool connectionPoool = new ConnectionPoool();
+    private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
 
     static {
         try {
@@ -50,7 +50,7 @@ public class DBUtil {
     public static void closeDbResources(Connection con) {
         try {
             if (con != null)
-                connectionPoool.returnConnectionToPool(con);
+                CONNECTION_POOL.returnConnectionToPool(con);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -62,28 +62,28 @@ public class DBUtil {
                 ps.close();
 
             if (con != null)
-                connectionPoool.returnConnectionToPool(con);
+                CONNECTION_POOL.returnConnectionToPool(con);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void closeDbResources(Connection con, PreparedStatement ps, ResultSet rs) {
+    public static void closeDbResources(Connection connection, PreparedStatement preparedStatement, ResultSet resultSet) {
         try {
-            if (rs != null)
-                rs.close();
+            if (resultSet != null)
+                resultSet.close();
 
-            if (ps != null)
-                ps.close();
+            if (preparedStatement != null)
+                preparedStatement.close();
 
-            if (con != null)
-                connectionPoool.returnConnectionToPool(con);
+            if (connection != null)
+                CONNECTION_POOL.returnConnectionToPool(connection);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static Connection getConnection() {
-        return connectionPoool.getConnectionFromPool();
+        return CONNECTION_POOL.getConnectionFromPool();
     }
 }
