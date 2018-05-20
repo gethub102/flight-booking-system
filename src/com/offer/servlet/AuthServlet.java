@@ -28,9 +28,9 @@ public class AuthServlet extends HttpServlet {
 
         Passenger passenger = new Passenger(email, password);
         AuthService authService = new AutheServiceImpl();
-        if (authService.login(passenger) != null) {
-            System.out.println("login success in servlet");
+        if ((passenger = authService.login(passenger)) != null) {
             request.getSession().setAttribute("auth", 1);
+            request.getSession().setAttribute("user", passenger);
         }
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }

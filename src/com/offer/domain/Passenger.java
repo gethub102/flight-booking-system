@@ -12,6 +12,7 @@ public class Passenger {
     private String telOffice;
     private String email;
     private String password;
+    private int id;
 
     public Passenger() {
         this.person = new Person();
@@ -23,8 +24,8 @@ public class Passenger {
         this.person = new Person();
     }
 
-    public Passenger(Person person, String ssn, String street, String apartmentNumber, String city, String state, String zip, String telHome, String telOffice, String email) {
-        this.person = person;
+    public Passenger(String firstName, String lastName, int age, String ssn, String street, String apartmentNumber, String city, String state, String zip, String telHome, String telOffice, String email) {
+        this.person = new Person(firstName, lastName, age);
         this.ssn = ssn;
         this.street = street;
         this.apartmentNumber = apartmentNumber;
@@ -36,9 +37,41 @@ public class Passenger {
         this.email = email;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Person getPerson() {
 
         return person;
+    }
+
+    public String getFirstName() {
+        return this.getPerson().getFirstName();
+    }
+
+    public String getLastName() {
+        return this.getPerson().getLastName();
+    }
+
+    public int getAge() {
+        return this.getPerson().getAge();
+    }
+
+    public void setFirstName(String firstName) {
+        this.person.setFirstName(firstName);
+    }
+
+    public void setLastName(String lastName) {
+        this.person.setLastName(lastName);
+    }
+
+    public void setAge(int age) {
+        this.person.setAge(age);
     }
 
     public void setPerson(Person person) {
@@ -123,5 +156,10 @@ public class Passenger {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return this.id + " " + this.getFirstName() + " " + this.getLastName() + " " + this.email;
     }
 }
