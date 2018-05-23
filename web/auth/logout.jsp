@@ -4,6 +4,7 @@
 <div class="container">
     <c:set var="auth" value="0" scope="session"/>
     <p>logout page</p>
+    <% session.invalidate(); %>
     <c:redirect url="/index.jsp"/>
 </div>
 
