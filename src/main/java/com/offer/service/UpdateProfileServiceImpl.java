@@ -16,7 +16,7 @@ public class UpdateProfileServiceImpl implements UpdateProfileService {
     }
 
     @Override
-    public Admin updateProfile(Admin admin) {
+    public Admin updateAdminProfile(Admin admin) {
         AdminDao adminDao = new AdminDaoImpl();
         return adminDao.updateProfile(admin);
     }

@@ -1,6 +1,6 @@
 package main.java.com.offer.domain;
 
-public class Admin extends User {
+public class User {
     private Person person;
     private String ssn;
     private String street;
@@ -14,68 +14,24 @@ public class Admin extends User {
     private String password;
     private int id;
 
-    public Admin(String email, String password) {
+    public User() {
+    }
+
+    public User(Person person, String ssn, String street, String apartmentNumber, String city, String state, String zip, String telHome, String telOffice, String email, String password) {
+        this.person = person;
+        this.ssn = ssn;
+        this.street = street;
+        this.apartmentNumber = apartmentNumber;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.telHome = telHome;
+        this.telOffice = telOffice;
         this.email = email;
         this.password = password;
-        this.person = new Person();
-    }
-
-    public Admin() {
-        this.person = new Person();
-    }
-
-    public Admin(String ssn, String street, String apartmentNumber, String city, String state, String zip, String telHome, String telOffice, String email) {
-        this.ssn = ssn;
-        this.street = street;
-        this.apartmentNumber = apartmentNumber;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
-        this.telHome = telHome;
-        this.telOffice = telOffice;
-        this.email = email;
-        this.id = id;
-    }
-
-    public Admin(String firstName, String lastName, int age, String ssn, String street, String apartmentNumber, String city, String state, String zip, String telHome, String telOffice, String email) {
-        this.person = new Person(firstName, lastName, age);
-        this.ssn = ssn;
-        this.street = street;
-        this.apartmentNumber = apartmentNumber;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
-        this.telHome = telHome;
-        this.telOffice = telOffice;
-        this.email = email;
-    }
-
-    public String getFirstName() {
-        return this.getPerson().getFirstName();
-    }
-
-    public String getLastName() {
-        return this.getPerson().getLastName();
-    }
-
-    public int getAge() {
-        return this.getPerson().getAge();
-    }
-
-    public void setAge(int age) {
-        this.person.setAge(age);
-    }
-
-    public void setFirstName(String firstName) {
-        this.person.setFirstName(firstName);
-    }
-
-    public void setLastName(String lastName) {
-        this.person.setLastName(lastName);
     }
 
     public Person getPerson() {
-
         return person;
     }
 

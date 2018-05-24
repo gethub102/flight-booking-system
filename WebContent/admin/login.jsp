@@ -1,13 +1,13 @@
-<%@ include file="/WEB-INF/include/header.jsp"%>
+<%@ include file="header.jsp"%>
 
-<%@include file="/WEB-INF/include/navigation.jsp"%>
+<%@include file="navigation.jsp"%>
 
 <div class="container">
     <div class="row">
         <h3>Admin</h3>
         <hr>
         <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-            <form action="/AuthServlet" method="get">
+            <form action="/admin/loginPost" method="get">
                 <div class="form-group">
                     <label for="email">Mail</label>
                     <input
@@ -26,7 +26,7 @@
                 </div>
                 <input type="submit" class="btn btn-primary col-sm-3" value="Sign In">
             </form>
-            <button class="btn btn-primary col-sm-offset-3 col-sm-3" onclick="location.href='/admin/register.jsp'">Register Account</button>
+            <button class="btn btn-primary col-sm-offset-3 col-sm-3" onclick="location.href='/admin/register'">Register Account</button>
         </div>
     </div>
 </div>
@@ -34,4 +34,4 @@
 
 
 
-<%@ include file="/WEB-INF/include/footer.jsp"%>
+<%@ include file="footer.jsp"%>

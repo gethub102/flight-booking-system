@@ -40,12 +40,12 @@ public class AdminDaoImpl implements AdminDao {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Admin retAmin = null;
+        Admin retAdmin = null;
         int queryResult = 0;
         try {
             connection = DBUtil.getConnection();
             int id = admin.getId();
-            String updateQuery = "UPDATE Admin SET firstName = ?, lastName = ?, ssn = ?, age = ?, street = ?, appartmentNumber = ?, city = ?, state = ?, zip = ?, telHome = ?, telOffice = ? WHERE passengerId = ?; ";
+            String updateQuery = "UPDATE Admin SET firstName = ?, lastName = ?, ssn = ?, age = ?, street = ?, appartmentNumber = ?, city = ?, state = ?, zip = ?, telHome = ?, telOffice = ? WHERE adminId = ?; ";
             preparedStatement = connection.prepareStatement(updateQuery);
             preparedStatement.setString(1, admin.getFirstName());
             preparedStatement.setString(2, admin.getLastName());
@@ -68,9 +68,9 @@ public class AdminDaoImpl implements AdminDao {
             DBUtil.closeDbResources(connection, preparedStatement, resultSet);
         }
         if (queryResult != 0) {
-            retAmin = admin;
+            retAdmin = admin;
         }
-        return retAmin;
+        return retAdmin;
     }
 
     private Admin retrieveAdminFromDB(ResultSet resultSet) {
@@ -94,6 +94,7 @@ public class AdminDaoImpl implements AdminDao {
             retPassenger.setFirstName(fname);
             retPassenger.setLastName(lname);
             retPassenger.setId(adminId);
+            System.out.println("admin is = " + adminId);
             retPassenger.setSsn(ssn);
             retPassenger.setAge(age);
             retPassenger.setStreet(street);

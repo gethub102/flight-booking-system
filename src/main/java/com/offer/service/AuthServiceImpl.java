@@ -17,6 +17,13 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
+    public Passenger register(Passenger passenger) {
+        PassengerDao passengerDao = new PassengerDaoImpl();
+        Passenger passengerBean = passengerDao.register(passenger);
+        return passengerBean;
+    }
+
+    @Override
     public Admin adminLogin(Admin admin) {
         AdminDao adminDao = new AdminDaoImpl();
         Admin adminBean = adminDao.login(admin);

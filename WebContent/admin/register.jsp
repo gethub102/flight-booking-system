@@ -6,7 +6,7 @@
         <h3>Admin</h3>
         <hr>
         <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-            <form>
+            <form action="/RegisterServlet" method="post">
                 <div class="form-group">
                     <label for="fname">First Name</label>
                     <input
@@ -41,7 +41,7 @@
                 </div>
                 <input type="submit" class="btn btn-primary col-sm-3" value="Sign Up">
             </form>
-            <button class="btn btn-primary col-sm-offset-3 col-sm-3" onclick="location.href='/auth/login.jsp'">Already have an Account</button>
+            <button class="btn btn-primary col-sm-offset-3 col-sm-3" onclick="window.location='/admin/login.jsp'">Already have an Account</button>
         </div>
     </div>
 </div>

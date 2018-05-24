@@ -1,6 +1,6 @@
-<%@ include file="./WEB-INF/include/header.jsp"%>
+<%@ include file="header.jsp"%>
 
-<%@include file="./WEB-INF/include/navigation.jsp"%>
+<%@include file="navigation.jsp"%>
 
 <div class="container">
     <h6>This is index using container</h6>
@@ -12,6 +12,6 @@
     </c:if>
 </div>
 
-${admin.getAge()}
+${admin.getEmail()}
 
-<%@ include file="./WEB-INF/include/footer.jsp"%>
+<%@ include file="footer.jsp"%>

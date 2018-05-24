@@ -1,6 +1,6 @@
 package main.java.com.offer.domain;
 
-public class Passenger {
+public class Passenger extends User {
     private Person person;
     private String ssn;
     private String street;

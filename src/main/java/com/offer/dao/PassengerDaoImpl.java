@@ -109,4 +109,45 @@ public class PassengerDaoImpl implements PassengerDao {
         }
         return retPassenger;
     }
+
+    @Override
+    public Passenger register(Passenger passenger) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Passenger retPassenger = null;
+        int queryResult = 0;
+
+        try {
+            connection = DBUtil.getConnection();
+
+            String updateQuery = "INSERT INTO Passenger (firstName, lastName, ssn, age, street, appartmentNumber, city, state, zip, telHome, telOffice, password, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);  ";
+            preparedStatement = connection.prepareStatement(updateQuery);
+            preparedStatement.setString(1, passenger.getFirstName());
+            preparedStatement.setString(2, passenger.getLastName());
+            preparedStatement.setString(3, passenger.getSsn());
+            preparedStatement.setInt(4, passenger.getAge());
+            preparedStatement.setString(5, passenger.getStreet());
+            preparedStatement.setString(6, passenger.getApartmentNumber());
+            preparedStatement.setString(7, passenger.getCity());
+            preparedStatement.setString(8, passenger.getState());
+            preparedStatement.setString(9, passenger.getZip());
+            preparedStatement.setString(10, passenger.getTelHome());
+            preparedStatement.setString(11, passenger.getTelOffice());
+            preparedStatement.setString(12, passenger.getPassword());
+            preparedStatement.setString(13, passenger.getEmail());
+            System.out.println(preparedStatement.toString());
+            queryResult = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            DBUtil.closeDbResources(connection, preparedStatement, resultSet);
+        }
+        if (queryResult != 0) {
+            retPassenger = passenger;
+        }
+        return retPassenger;
+
+    }
 }

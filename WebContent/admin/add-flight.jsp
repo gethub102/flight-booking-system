@@ -1,24 +1,42 @@
-<%@ include file="/WEB-INF/include/header.jsp"%>
+<%--
+  Created by IntelliJ IDEA.
+  User: wenbinli
+  Date: 5/23/18
+  Time: 10:17 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ include file="header.jsp" %>
 
-<%@include file="/WEB-INF/include/navigation.jsp"%>
+<%@include file="navigation.jsp" %>
+<c:if test="${sessionScope.auth != 1}">
+    <c:redirect url="/auth/login.jsp"/>
+</c:if>
 <div class="container">
     <div class="row">
+        <h5>Add a flight</h5>
+        <hr>
         <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-            <form action="/RegisterServlet" method="post">
+            <form action="/admin/updateProfile", method="post">
                 <div class="form-group">
-                    <label for="fname">First Name</label>
+                    <label for="firstName">First Name</label>
                     <input
                             type="text"
-                            id="fname"
+                            id="firstName"
                             name="firstName"
+                    <c:if test="${sessionScope.user.getFirstName() != null}">
+                            value="${sessionScope.user.getFirstName()}"
+                    </c:if>
                             class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="lname">Last Name</label>
+                    <label for="lastName">Last Name</label>
                     <input
                             type="text"
-                            id="lname"
+                            id="lastName"
                             name="lastName"
+                    <c:if test="${sessionScope.user.getLastName()!= null}">
+                            value="${sessionScope.user.getLastName()}"
+                    </c:if>
                             class="form-control">
                 </div>
                 <div class="form-group">
@@ -27,14 +45,9 @@
                             type="email"
                             id="email"
                             name="email"
-                            class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input
-                            type="password"
-                            id="password"
-                            name="password"
+                    <c:if test="${sessionScope.user.email != null}">
+                            value="${sessionScope.user.email}"
+                    </c:if>
                             class="form-control">
                 </div>
                 <div class="form-group">
@@ -136,11 +149,11 @@
                     </c:if>
                             class="form-control">
                 </div>
-                <input type="submit" class="btn btn-primary col-sm-3" value="Sign Up">
+                <input type="submit" class="btn btn-primary col-sm-3" value="Update Profile">
             </form>
-            <button class="btn btn-primary col-sm-offset-3 col-sm-3" onclick="location.href='/auth/login.jsp'">Already have an Account</button>
         </div>
     </div>
 </div>
 
-<%@ include file="/WEB-INF/include/footer.jsp"%>
+
+<%@ include file="footer.jsp" %>

@@ -6,5 +6,5 @@ import main.java.com.offer.domain.Passenger;
 
 public interface UpdateProfileService {
     Passenger updateProfile(Passenger passenger);
-    Admin updateProfile(Admin admin);
+    Admin updateAdminProfile(Admin admin);
 }
