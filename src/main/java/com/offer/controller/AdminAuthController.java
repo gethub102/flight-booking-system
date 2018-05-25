@@ -42,7 +42,7 @@ public class AdminAuthController {
         AuthService authService = new AuthServiceImpl();
         if ((admin = authService.adminLogin(admin)) != null) {
             request.getSession().setAttribute("auth", 1);
-            System.out.println("admin controller line 45: id = " + admin.getId());
+//            System.out.println("admin controller line 45: id = " + admin.getId());
             request.getSession().setAttribute("user", admin);
         }
         return "/admin/index";
