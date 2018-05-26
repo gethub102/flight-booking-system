@@ -10,6 +10,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="#">Booking History</a></li>
                 <li><a href="/passenger-profile.jsp">Profile</a></li>
+                <li><a href="/book/scheduled-flight.jsp">Booking</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

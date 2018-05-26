@@ -32,12 +32,7 @@ public class ConnectionPool {
     {
         final int MAX_POOL_SIZE = DBConfigure.getDbMaxConnections();
 
-        if(availableConnections.size() < MAX_POOL_SIZE)
-        {
-            return false;
-        }
-
-        return true;
+        return availableConnections.size() >= MAX_POOL_SIZE;
     }
 
     //Creating a connection
